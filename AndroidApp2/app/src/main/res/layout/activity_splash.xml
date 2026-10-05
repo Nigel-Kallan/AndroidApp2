@@ -4,7 +4,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="24dp">
+    android:padding="24dp"
+    android:background="#FFFFFF">
+
+    <!-- Coffee cup icon -->
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/baseline_local_cafe_24"
+        android:tint="#C8102E"
+        android:contentDescription="Coffee cup icon"
+        android:layout_marginBottom="20dp" />
 
     <!-- Tim Hortons app title -->
     <TextView
@@ -13,8 +23,9 @@
         android:text="Tim Hortons"
         android:textSize="36sp"
         android:textStyle="bold"
+        android:textColor="#C8102E"
         android:gravity="center"
-        android:layout_marginBottom="12dp" />
+        android:layout_marginBottom="10dp" />
 
     <!-- App description -->
     <TextView
@@ -22,6 +33,7 @@
         android:layout_height="wrap_content"
         android:text="Order App"
         android:textSize="20sp"
+        android:textColor="#333333"
         android:gravity="center" />
 
 </LinearLayout>
