@@ -70,7 +70,58 @@
         android:id="@+id/sizeSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp" />
+        android:layout_marginBottom="20dp" />
+
+    <!-- Quantity label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quantity:"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:textColor="#C8102E"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Stepper-style quantity controls -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="24dp">
+
+        <!-- Decrease quantity -->
+        <Button
+            android:id="@+id/decreaseButton"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="−"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#C8102E" />
+
+        <!-- Current quantity -->
+        <TextView
+            android:id="@+id/quantityTextView"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:gravity="center" />
+
+        <!-- Increase quantity -->
+        <Button
+            android:id="@+id/increaseButton"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#C8102E" />
+
+    </LinearLayout>
 
     <!-- Save the order -->
     <Button

@@ -27,6 +27,33 @@ class OrderActivity : AppCompatActivity() {
         val recentOrdersTextView =
             findViewById<TextView>(R.id.recentOrdersTextView)
 
+        // Connect the quantity controls
+        val decreaseButton =
+            findViewById<Button>(R.id.decreaseButton)
+
+        val increaseButton =
+            findViewById<Button>(R.id.increaseButton)
+
+        val quantityTextView =
+            findViewById<TextView>(R.id.quantityTextView)
+
+        // Starting quantity
+        var quantity = 1
+
+        // Decrease the quantity, but do not go below 1
+        decreaseButton.setOnClickListener {
+            if (quantity > 1) {
+                quantity--
+                quantityTextView.text = quantity.toString()
+            }
+        }
+
+        // Increase the quantity
+        increaseButton.setOnClickListener {
+            quantity++
+            quantityTextView.text = quantity.toString()
+        }
+
         // Open SharedPreferences
         val sharedPreferences =
             getSharedPreferences("SavedOrders", MODE_PRIVATE)
@@ -146,9 +173,9 @@ class OrderActivity : AppCompatActivity() {
 
             } else {
 
-                // Create the order
+                // Create the order including the quantity
                 val order =
-                    "$customerName - $selectedDrink - $selectedSize"
+                    "$customerName - $selectedDrink - $selectedSize - Qty: $quantity"
 
                 // Get existing saved orders
                 val savedOrders =
@@ -174,6 +201,10 @@ class OrderActivity : AppCompatActivity() {
 
                 // Clear the customer's name
                 nameInput.text.clear()
+
+                // Reset quantity back to 1
+                quantity = 1
+                quantityTextView.text = quantity.toString()
             }
         }
     }
