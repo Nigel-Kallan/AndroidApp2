@@ -61,6 +61,7 @@ class SavedOrdersActivity : AppCompatActivity() {
                     // Refresh the ListView
                     adapter.notifyDataSetChanged()
 
+                    // Tell the user that the order was cancelled
                     Toast.makeText(
                         this,
                         "Order cancelled",

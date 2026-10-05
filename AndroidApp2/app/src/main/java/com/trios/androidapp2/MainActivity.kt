@@ -17,18 +17,19 @@ class MainActivity : AppCompatActivity() {
         // Display the main Tim Hortons menu
         setContentView(R.layout.activity_main)
 
-        // Display today's date
+        // Connect the date TextView from the layout
         val dateTextView =
             findViewById<TextView>(R.id.dateTextView)
 
+        // Format today's date as Month Day, Year
         val dateFormat =
             SimpleDateFormat("MMMM d, yyyy", Locale.getDefault())
 
+        // Get today's date and display it on the main screen
         val currentDate = dateFormat.format(Date())
-
         dateTextView.text = currentDate
 
-        // Get the New Order button
+        // Connect the New Order button
         val newOrderButton =
             findViewById<Button>(R.id.newOrderButton)
 
@@ -38,7 +39,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // Get the Saved Orders button
+        // Connect the Saved Orders button
         val savedOrdersButton =
             findViewById<Button>(R.id.savedOrdersButton)
 
