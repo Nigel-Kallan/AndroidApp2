@@ -24,6 +24,15 @@
         android:hint="Enter your name"
         android:inputType="textPersonName"
         android:autofillHints="name"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Recent orders for this customer -->
+    <TextView
+        android:id="@+id/recentOrdersTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Recent Orders: None"
+        android:textSize="15sp"
         android:layout_marginBottom="20dp" />
 
     <!-- Drink label -->

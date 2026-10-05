@@ -1,10 +1,13 @@
 package com.trios.androidapp2
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
@@ -21,6 +24,12 @@ class OrderActivity : AppCompatActivity() {
         val drinkSpinner = findViewById<Spinner>(R.id.drinkSpinner)
         val sizeSpinner = findViewById<Spinner>(R.id.sizeSpinner)
         val saveOrderButton = findViewById<Button>(R.id.saveOrderButton)
+        val recentOrdersTextView =
+            findViewById<TextView>(R.id.recentOrdersTextView)
+
+        // Open SharedPreferences
+        val sharedPreferences =
+            getSharedPreferences("SavedOrders", MODE_PRIVATE)
 
         // Drink choices
         val drinks = arrayOf(
@@ -64,12 +73,72 @@ class OrderActivity : AppCompatActivity() {
 
         sizeSpinner.adapter = sizeAdapter
 
+        // Watch the customer's name as it is typed
+        nameInput.addTextChangedListener(object : TextWatcher {
+
+            override fun beforeTextChanged(
+                text: CharSequence?,
+                start: Int,
+                count: Int,
+                after: Int
+            ) {
+            }
+
+            override fun onTextChanged(
+                text: CharSequence?,
+                start: Int,
+                before: Int,
+                count: Int
+            ) {
+                val customerName =
+                    text.toString().trim()
+
+                // Get all saved orders
+                val savedOrders =
+                    sharedPreferences.getStringSet(
+                        "orders",
+                        emptySet()
+                    ) ?: emptySet()
+
+                // Find orders belonging to this customer
+                val customerOrders =
+                    savedOrders.filter {
+                        it.startsWith(
+                            "$customerName -",
+                            ignoreCase = true
+                        )
+                    }
+
+                // Display the customer's recent orders
+                if (customerName.isEmpty() ||
+                    customerOrders.isEmpty()
+                ) {
+                    recentOrdersTextView.text =
+                        "Recent Orders: None"
+                } else {
+                    recentOrdersTextView.text =
+                        "Recent Orders:\n" +
+                                customerOrders.joinToString("\n")
+                }
+            }
+
+            override fun afterTextChanged(
+                text: Editable?
+            ) {
+            }
+        })
+
         // Save Order button
         saveOrderButton.setOnClickListener {
 
-            val customerName = nameInput.text.toString().trim()
-            val selectedDrink = drinkSpinner.selectedItem.toString()
-            val selectedSize = sizeSpinner.selectedItem.toString()
+            val customerName =
+                nameInput.text.toString().trim()
+
+            val selectedDrink =
+                drinkSpinner.selectedItem.toString()
+
+            val selectedSize =
+                sizeSpinner.selectedItem.toString()
 
             if (customerName.isEmpty()) {
 
@@ -80,10 +149,6 @@ class OrderActivity : AppCompatActivity() {
                 // Create the order
                 val order =
                     "$customerName - $selectedDrink - $selectedSize"
-
-                // Open SharedPreferences
-                val sharedPreferences =
-                    getSharedPreferences("SavedOrders", MODE_PRIVATE)
 
                 // Get existing saved orders
                 val savedOrders =
