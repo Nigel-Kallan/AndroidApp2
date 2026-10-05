@@ -3,15 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:padding="24dp"
+    android:background="#FFFFFF">
 
     <!-- Screen title -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Create Your Order"
-        android:textSize="26sp"
+        android:textSize="28sp"
         android:textStyle="bold"
+        android:textColor="#C8102E"
         android:gravity="center"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="24dp" />
@@ -24,6 +26,8 @@
         android:hint="Enter your name"
         android:inputType="textPersonName"
         android:autofillHints="name"
+        android:textColor="#333333"
+        android:textColorHint="#777777"
         android:layout_marginBottom="12dp" />
 
     <!-- Recent orders for this customer -->
@@ -33,41 +37,49 @@
         android:layout_height="wrap_content"
         android:text="Recent Orders: None"
         android:textSize="15sp"
-        android:layout_marginBottom="20dp" />
+        android:textColor="#555555"
+        android:layout_marginBottom="24dp" />
 
     <!-- Drink label -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Choose your drink:"
-        android:textStyle="bold" />
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:textColor="#C8102E" />
 
     <!-- Drink selection -->
     <Spinner
         android:id="@+id/drinkSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="22dp" />
 
     <!-- Size label -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Choose your size:"
-        android:textStyle="bold" />
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:textColor="#C8102E" />
 
     <!-- Size selection -->
     <Spinner
         android:id="@+id/sizeSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp" />
+        android:layout_marginBottom="28dp" />
 
     <!-- Save the order -->
     <Button
         android:id="@+id/saveOrderButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save Order" />
+        android:text="Save Order"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#C8102E" />
 
 </LinearLayout>

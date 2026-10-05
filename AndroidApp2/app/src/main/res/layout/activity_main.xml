@@ -3,39 +3,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:padding="24dp"
+    android:background="#FFFFFF">
 
+    <!-- Tim Hortons title -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Tim Hortons"
-        android:textSize="28sp"
+        android:textSize="32sp"
         android:textStyle="bold"
+        android:textColor="#C8102E"
         android:gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="8dp" />
 
-    <!-- Today's date will appear here -->
+    <!-- Today's date -->
     <TextView
         android:id="@+id/dateTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Today's Date"
-        android:textSize="16sp"
+        android:textSize="17sp"
+        android:textColor="#333333"
         android:gravity="center"
-        android:layout_marginBottom="30dp" />
+        android:layout_marginBottom="40dp" />
 
+    <!-- Create a new order -->
     <Button
         android:id="@+id/newOrderButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="New Order"
-        android:layout_marginBottom="16dp" />
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#C8102E"
+        android:layout_marginBottom="18dp" />
 
+    <!-- View previously saved orders -->
     <Button
         android:id="@+id/savedOrdersButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Saved Orders" />
+        android:text="Saved Orders"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#C8102E" />
 
 </LinearLayout>

@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:padding="24dp"
+    android:background="#FFFFFF">
 
     <!-- Screen title -->
     <TextView
@@ -13,15 +14,27 @@
         android:text="Saved Orders"
         android:textSize="28sp"
         android:textStyle="bold"
+        android:textColor="#C8102E"
         android:gravity="center"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="8dp" />
+
+    <!-- Instructions for cancelling an order -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tap an order to cancel it"
+        android:textSize="15sp"
+        android:textColor="#555555"
+        android:gravity="center"
+        android:layout_marginBottom="24dp" />
 
     <!-- Displays the saved Tim Hortons orders -->
     <ListView
         android:id="@+id/ordersListView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:dividerHeight="1dp" />
 
 </LinearLayout>
